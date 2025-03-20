@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recursive Method Calculator</title>
+</head>
+<body>
+    <h2>Factorial Calculator</h2>
+    <input type="number" id="factorialInput" placeholder="input" min="0">
+    <input type="number" id="factorialOutput" placeholder="output"readonly>
+    <button type="button" onclick="factorialOutput.value = factorial(parseInt(factorialInput.value))">Calculate factorial</button>
+    <div id="resultFactorial"></div>
+<br>
+<br>
+<br>
+    <h2>Fibonacci Calculator</h2>
+    <input type="number" id="fibonacciInput" placeholder="input" min="1">
+    <input type="number" id="fibonacciOutput" placeholder="output"readonly>
+    <button type="button" onclick="fibonacciOutput.value = fibonacci(parseInt(fibonacciInput.value))">Calculate</button>
+    <div id="result"></div>
+<br>
+<br>
+<br>
+    <h2>Ackermann step-by-step calculator</h2>
+   <input type="number" id="m" placeholder="Integer 1" min="0" required>
+ <input type="number" id="n" placeholder="Integer 2" min="0" required>
+  <input type="text" id="result" placeholder="result" readonly>
+   <button type="button" onclick="result.value=nextStep(m.value, n.value)">Next Step</button>
+  <div id="result"></div>
+    <script>
+      let steps=1
+      function nextStep(a,b){
+        let noSteps=steps
+        x=a
+        y=b
+        while (noSteps>0){ if (b === 0) {
+          a+1;
+          noSteps--;
+        } else if (a===1) {
+          nextStep(1,b-1);
+          noSteps--;
+        } else {
+          nextStep(a-1,nextStep(a,b-1));
+          noSteps--;
+        }
+        steps++;
+        return "("+x+","+y+")"
+                         }
+        function factorial(n) {
+            if (n < 0) return -1;
+            if (n === 0) return 1;
+            return n * factorial(n - 1);
+        }
+
+        function fibonacci(n) {
+            if (n < 1) return 0;
+            if (n === 1) return 1;
+            if (n === 2) return 1;
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+    </script>
+
+
+</body>
+</html>
