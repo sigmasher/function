@@ -21,31 +21,6 @@
 <br>
 <br>
 <br>
-    <h2>Ackermann step-by-step calculator</h2>
-   <input type="number" id="m" placeholder="Integer 1" min="0" required>
- <input type="number" id="n" placeholder="Integer 2" min="0" required>
-  <input type="text" id="result" placeholder="result" readonly>
-   <button type="button" onclick="result.value=nextStep(m.value, n.value)">Next Step</button>
-  <div id="result"></div>
-    <script>
-      let steps=1
-      function nextStep(a,b){
-        let noSteps=steps
-        x=a
-        y=b
-        while (noSteps>0){ if (b === 0) {
-          a+1;
-          noSteps--;
-        } else if (a===1) {
-          nextStep(1,b-1);
-          noSteps--;
-        } else {
-          nextStep(a-1,nextStep(a,b-1));
-          noSteps--;
-        }
-        steps++;
-        return "("+x+","+y+")"
-                         }
         function factorial(n) {
             if (n < 0) return -1;
             if (n === 0) return 1;
